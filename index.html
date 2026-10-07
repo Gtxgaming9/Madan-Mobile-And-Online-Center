@@ -4,35 +4,200 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="https://gmpg.org/xfn/11"> 
-<title>Universal Combo List - Smart Highlight Search Feature 2026</title>
+<title>Universal Combo List - Madan Mobile And Online Centre</title>
 <meta name="description" content="Universal Combo List with Smart Highlight Search: 150+ displays support 1300+ models. Find any model and see compatibility instantly."/>
 <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-body { font-family: Arial, sans-serif; padding: 10px; background: #f7f7f7; margin: 0; }
-h2 { text-align: center; color: #333; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f0f4ff 0%, #fef6ff 100%);
+  color: #1a1a2e;
+  padding: 15px;
+  min-height: 100vh;
+}
+
+/* ---- HEADER ---- */
+.header-box {
+  text-align: center;
+  padding: 25px 15px 15px;
+}
+.site-title {
+  font-size: 38px;
+  font-weight: 800;
+  color: #6000cd;
+  text-shadow: 3px 3px 0 #ffd700, 6px 6px 12px rgba(0,0,0,0.15);
+  letter-spacing: 1px;
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+.site-subtitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #444;
+  margin-top: 8px;
+}
+.creator-name {
+  font-size: 20px;
+  font-weight: 800;
+  color: #8b26ff;
+  margin-top: 10px;
+  text-shadow: 2px 2px 0 #ffe0b3;
+  display: inline-block;
+  padding: 6px 18px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(139,38,255,0.2);
+}
+
+/* ---- CLICKABLE TITLE ---- */
+.clickable-title {
+  cursor: pointer;
+  display: inline-block;
+  transition: transform 0.2s;
+}
+.clickable-title:active {
+  transform: scale(0.95);
+}
+
+/* ---- TABLE ---- */
+.table-box {
+  margin: 20px 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
 table { width: 100%; border-collapse: collapse; background: white; }
-th { background: #2196f3; color: white; padding: 8px; border: 1px solid #ccc; text-align: left; }
-td { padding: 8px; border: 1px solid #ccc; font-size: 14px; }
-.folder { padding:18px; margin:10px 0; background:#f4f6f8; border-radius:10px; border:1px solid #ddd; cursor:pointer; font-weight:900; font-size:22px; }
-.folder:hover { background:#e9f2ff; }
-.model { padding:12px 14px; margin:6px 0; border:2px solid black; border-radius:6px; font-size:18px; font-weight:900; background:#fff; }
-.model span.match { color:red; font-weight:900; }
-.top-bar { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
-.back-btn { color:#0066cc; font-weight:800; cursor:pointer; font-size:16px; white-space:nowrap; }
-.search-box { flex:1; padding:10px; border-radius:6px; border:1px solid #ccc; font-size:15px; font-weight:700; }
-.no-result { color:red; font-weight:900; margin:6px 4px 12px; display:none; }
-h3 { font-weight:800; }
-.btn-center { text-align: center; margin: 15px 0; }
-.btn { display: inline-block; padding: 15px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; color: white; }
-.btn-green { background: #00d084; }
-.thanks { background: #fcb900; color: #0f172a; padding: 15px; border-radius: 18px; text-align: center; font-weight: bold; margin: 20px 0; }
+th { background: linear-gradient(90deg, #2196f3, #00bcd4); color: white; padding: 12px; text-align: left; font-size: 15px; }
+td { padding: 12px; border-bottom: 1px solid #eee; font-size: 14px; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: #f0f8ff; }
+
+/* ---- BUTTON ---- */
+.btn-center { text-align: center; margin: 25px 0; }
+.btn {
+  display: inline-block;
+  padding: 16px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  color: white;
+  background: linear-gradient(135deg, #00d084, #00b36b);
+  box-shadow: 0 6px 20px rgba(0, 208, 132, 0.4);
+  transition: all 0.3s;
+}
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 208, 132, 0.6);
+}
+
+/* ---- FOLDER / MODEL ---- */
+.folder {
+  padding: 20px;
+  margin: 12px 0;
+  background: linear-gradient(135deg, #ffffff, #f9f5ff);
+  border-radius: 16px;
+  border: 1px solid #e0d4ff;
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 20px;
+  color: #3a0078;
+  box-shadow: 0 4px 15px rgba(96, 0, 205, 0.08);
+  transition: all 0.3s;
+}
+.folder:hover, .folder:active {
+  background: linear-gradient(135deg, #f3e8ff, #ede0ff);
+  transform: translateX(5px);
+  box-shadow: 0 6px 20px rgba(96, 0, 205, 0.2);
+}
+.model {
+  padding: 14px 16px;
+  margin: 8px 0;
+  border: 1px solid #d1d5db;
+  border-left: 5px solid #6000cd;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  background: #fff;
+  line-height: 1.5;
+  transition: all 0.2s;
+}
+.model:hover { background: #faf5ff; }
+.model span.match { color: #e11d48; font-weight: 800; background: #fff0f3; padding: 0 2px; border-radius: 3px; }
+
+/* ---- TOP BAR ---- */
+.top-bar { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
+.back-btn {
+  color: #6000cd;
+  font-weight: 800;
+  cursor: pointer;
+  font-size: 15px;
+  white-space: nowrap;
+  padding: 10px 16px;
+  background: #f3e8ff;
+  border-radius: 10px;
+}
+.search-box {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 2px solid #e0d4ff;
+  font-size: 15px;
+  font-weight: 600;
+  outline: none;
+  transition: border 0.3s;
+}
+.search-box:focus { border-color: #8b26ff; }
+.no-result { color: #e11d48; font-weight: 800; margin: 10px 4px; display: none; text-align: center; }
+h3 { font-weight: 800; color: #3a0078; margin: 10px 0; }
+
+/* ---- THANKS BOX ---- */
+.thanks {
+  background: linear-gradient(135deg, #fcb900, #ffd700);
+  color: #0f172a;
+  padding: 18px;
+  border-radius: 18px;
+  text-align: center;
+  font-weight: 700;
+  margin: 25px 0;
+  font-size: 15px;
+  box-shadow: 0 6px 20px rgba(252, 185, 0, 0.3);
+}
+
+/* ---- TEXT ---- */
+p { line-height: 1.7; margin: 12px 0; font-size: 15px; }
+h3.section-title { color: #00b36b; margin-top: 20px; }
+
+/* ---- FOOTER ---- */
+.footer {
+  text-align: center;
+  padding: 25px 15px;
+  background: linear-gradient(135deg, #6000cd, #8b26ff);
+  color: white;
+  border-radius: 20px;
+  margin-top: 30px;
+  box-shadow: 0 8px 25px rgba(96, 0, 205, 0.3);
+}
+.footer h3 { color: #ffd700; margin-bottom: 10px; }
+.footer p { color: #f0e6ff; font-size: 14px; }
 </style>
 </head>
 <body>
 
-<h2>Universal List 2026</h2>
-<p style="text-align:center; color:#6000cd;"><strong>Madan Mobile And Online Centre</strong></p>
+<!-- HEADER -->
+<div class="header-box">
+  <div class="site-title clickable-title" onclick="goHome()">Universal List 2026</div>
+  <div class="site-subtitle">Smart Highlight Search Feature</div>
+  <div class="creator-name">Madan Mobile And Online Centre</div>
+</div>
 
+<!-- UPDATE TABLE -->
+<div class="table-box">
 <table>
   <tr><th>Date</th><th>Update Details</th></tr>
   <tr><td>22/03/2026</td><td>Realme c71 combo List add</td></tr>
@@ -40,30 +205,35 @@ h3 { font-weight:800; }
   <tr><td>22/03/2026</td><td>Redmi Note 10 Frame add</td></tr>
   <tr><td>22/03/2026</td><td>Oppo A6 5g Combo Add</td></tr>
 </table>
-
-<div class="btn-center">
-<a class="btn btn-green" href="https://whatsapp.com/channel/0029Vb9Merj1NCrSstQMcU3k" target="_blank">Whatsapp Community Join Link</a>
 </div>
 
-<p style="text-align:center; font-size:33px;"><strong>Universal List 2026</strong></p>
+<!-- WHATSAPP BUTTON -->
+<div class="btn-center">
+<a class="btn" href="https://whatsapp.com/channel/0029Vb9Merj1NCrSstQMcU3k" target="_blank">💬 Whatsapp Community Join Link</a>
+</div>
 
+<!-- APP DATA -->
 <div id="app">⚡ Loading data…</div>
 
+<!-- THANKS -->
 <div class="thanks">"Special thanks to Krishna Mobile Mankapur and Rajaram Telecom Raipur for providing 135+ Universal Combo List."</div>
 
+<!-- DESCRIPTION -->
 <p>One display or combo can work in many different mobile models — you just need the correct compatibility details. That is why the <strong>Universal Combo List</strong> is very useful for mobile repair technicians and shop owners.</p>
 
 <p>With the help of this website, you can quickly check the <strong>Universal Combo List</strong> for different mobile brands and models. You only need to open the required category, go into the brand section, and search your model name. As soon as you type the model, the results are automatically highlighted, and you can instantly see how many models use the same display or combo part.</p>
 
 <p>Using the <strong>Universal Combo List</strong> saves time, reduces confusion, and helps you choose the right compatible part for faster repair work.</p>
 
-<h3 style="color:#00d084;"><strong>Your Feedback Matters!</strong></h3>
+<!-- FEEDBACK -->
+<h3 class="section-title">Your Feedback Matters!</h3>
+<p style="color:#00b36b;"><strong>Your feedback is very important to us.<br>Your suggestions and ideas help us improve the Universal Combo List website.<br>Please share your feedback so that we can deliver even better and more useful information to you.<br>You can message us via WhatsApp at +91 7205702493.<br>Thank you!</strong></p>
 
-<p style="color:#00d084;"><strong>Your feedback is very important to us.<br>Your suggestions and ideas help us improve the Universal Combo List website.<br>Please share your feedback so that we can deliver even better and more useful information to you.<br>You can message us via WhatsApp at +91 7205702493.<br>Thank you!</strong></p>
-
-<h3 style="text-align:center;">Contact Us</h3>
-
-<p style="text-align:center;"><strong>Makund Mobile</strong> Lathor, Bolangir, Odisha, India – <strong>767038</strong></p>
+<!-- CONTACT -->
+<div class="footer">
+  <h3>Contact Us</h3>
+  <p><strong>Madan Mobile And Online Centre</strong><br>Saraimeer, Azamgarh, Uttar Pradesh, India</p>
+</div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -186,7 +356,7 @@ function renderModels(brand){
   app.innerHTML=`
   <div class="top-bar">
     <div class="back-btn" onclick="goBack()">⬅ BACK</div>
-    <input id="search" class="search-box" placeholder="Search model here...">
+    <input id="search" class="search-box" placeholder="🔍 Search model here...">
   </div>
   <div id="noResult" class="no-result">❌ Model Not Found</div>`;
 
@@ -226,6 +396,13 @@ window.goBack=function(){
     let fn=stack.pop();
     fn();
   } else renderCategories();
+};
+
+// Home page function (title click par)
+window.goHome = function(){
+  stack = [];
+  renderCategories();
+  window.scrollTo({top: 0, behavior: 'smooth'});
 };
 
 renderCategories();
